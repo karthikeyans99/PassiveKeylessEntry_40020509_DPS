@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00050.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="df2167f2-f5ae-47ff-adc1-e644196d7811">
+      <SHORT-NAME>ARRoot</SHORT-NAME>
+      <ELEMENTS>
+        <HW-ELEMENT/>
+        <CAN-CLUSTER>
+          <SHORT-NAME>PassiveKeylessEntryLeftCanCluster</SHORT-NAME>
+          <CAN-CLUSTER-VARIANTS>
+            <CAN-CLUSTER-CONDITIONAL>
+              <PHYSICAL-CHANNELS>
+                <CAN-PHYSICAL-CHANNEL>
+                  <SHORT-NAME>PassiveKeylessEntryLeftCanPhysicalChannel</SHORT-NAME>
+                  <COMM-CONNECTORS>
+                    <COMMUNICATION-CONNECTOR-REF-CONDITIONAL>
+                      <COMMUNICATION-CONNECTOR-REF DEST="CAN-COMMUNICATION-CONNECTOR">/ARRoot/PassiveKeylessEntryLeftECUInstance/PassiveKeylessEntryLeftCanCommunicationConnector</COMMUNICATION-CONNECTOR-REF>
+                    </COMMUNICATION-CONNECTOR-REF-CONDITIONAL>
+                  </COMM-CONNECTORS>
+                </CAN-PHYSICAL-CHANNEL>
+              </PHYSICAL-CHANNELS>
+            </CAN-CLUSTER-CONDITIONAL>
+          </CAN-CLUSTER-VARIANTS>
+        </CAN-CLUSTER>
+        <ECU-INSTANCE>
+          <SHORT-NAME>PassiveKeylessEntryLeftECUInstance</SHORT-NAME>
+          <COMM-CONTROLLERS>
+            <CAN-COMMUNICATION-CONTROLLER>
+              <SHORT-NAME>PassiveKeylessEntryLeftCanCommunicationController</SHORT-NAME>
+            </CAN-COMMUNICATION-CONTROLLER>
+          </COMM-CONTROLLERS>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR>
+              <SHORT-NAME>PassiveKeylessEntryLeftCanCommunicationConnector</SHORT-NAME>
+              <COMM-CONTROLLER-REF DEST="CAN-COMMUNICATION-CONTROLLER">/ARRoot/PassiveKeylessEntryLeftECUInstance/PassiveKeylessEntryLeftCanCommunicationController</COMM-CONTROLLER-REF>
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+        <FLAT-MAP>
+          <SHORT-NAME>PassiveKeylessEntryLeftFlatMap</SHORT-NAME>
+          <INSTANCES>
+            <FLAT-INSTANCE-DESCRIPTOR>
+              <ECU-EXTRACT-REFERENCE-IREF>
+                <CONTEXT-ELEMENT-REF DEST="SYSTEM">/ARRoot/PassiveKeylessEntryLeftSystem</CONTEXT-ELEMENT-REF>
+                <CONTEXT-ELEMENT-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/PassiveKeylessEntryLeftSystem/PassiveKeylessEntryLeftRootSoftwareComposition</CONTEXT-ELEMENT-REF>
+                <TARGET-REF DEST="R-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntryControllerType/PassiveKeylessEntryLeft</TARGET-REF>
+              </ECU-EXTRACT-REFERENCE-IREF>
+            </FLAT-INSTANCE-DESCRIPTOR>
+          </INSTANCES>
+        </FLAT-MAP>
+        <SYSTEM>
+          <SHORT-NAME>PassiveKeylessEntryLeftSystem</SHORT-NAME>
+          <MAPPINGS>
+            <SYSTEM-MAPPING>
+              <SHORT-NAME>PassiveKeylessEntryLeftSoftwareMapping</SHORT-NAME>
+              <DATA-MAPPINGS>
+                <CLIENT-SERVER-TO-SIGNAL-MAPPING S="ClientServerToSignalMapping">
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </CLIENT-SERVER-TO-SIGNAL-MAPPING>
+              </DATA-MAPPINGS>
+              <SW-IMPL-MAPPINGS>
+                <SWC-TO-IMPL-MAPPING>
+                  <SHORT-NAME>PassiveKeylessEntryLeftSwcToImpleMapping</SHORT-NAME>
+                  <COMPONENT-IMPLEMENTATION-REF DEST="SWC-IMPLEMENTATION">/ARRoot/PassiveKeylessEntryImp</COMPONENT-IMPLEMENTATION-REF>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/PassiveKeylessEntryLeftSystem/PassiveKeylessEntryLeftRootSoftwareComposition</CONTEXT-COMPOSITION-REF>
+                      <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryLeftTopLevelComposition/PassiveKeylessEntryLeftSwComponentProto</CONTEXT-COMPONENT-REF>
+                      <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryLeftTopLevelComposition/PassiveKeylessEntryLeftSwComponentProto</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                </SWC-TO-IMPL-MAPPING>
+              </SW-IMPL-MAPPINGS>
+              <SW-MAPPINGS>
+                <SWC-TO-ECU-MAPPING>
+                  <SHORT-NAME>PassiveKeylessEntryLeftSwcToEcuMapping</SHORT-NAME>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF S="">
+                      <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/PassiveKeylessEntryLeftSystem/PassiveKeylessEntryLeftRootSoftwareComposition</CONTEXT-COMPOSITION-REF>
+                      <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryLeftTopLevelComposition/PassiveKeylessEntryLeftSwComponentProto</CONTEXT-COMPONENT-REF>
+                      <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryLeftTopLevelComposition/PassiveKeylessEntryLeftSwComponentProto</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                  <CONTROLLED-HW-ELEMENT-REF DEST="HW-ELEMENT">/ARRoot/</CONTROLLED-HW-ELEMENT-REF>
+                  <ECU-INSTANCE-REF DEST="ECU-INSTANCE">/ARRoot/PassiveKeylessEntryLeftECUInstance</ECU-INSTANCE-REF>
+                  <PROCESSING-UNIT-REF DEST="HW-ELEMENT">/ARRoot/</PROCESSING-UNIT-REF>
+                </SWC-TO-ECU-MAPPING>
+              </SW-MAPPINGS>
+            </SYSTEM-MAPPING>
+          </MAPPINGS>
+          <ROOT-SOFTWARE-COMPOSITIONS>
+            <ROOT-SW-COMPOSITION-PROTOTYPE>
+              <SHORT-NAME>PassiveKeylessEntryLeftRootSoftwareComposition</SHORT-NAME>
+              <FLAT-MAP-REF DEST="FLAT-MAP">/ARRoot/PassiveKeylessEntryLeftFlatMap</FLAT-MAP-REF>
+              <SOFTWARE-COMPOSITION-TREF DEST="COMPOSITION-SW-COMPONENT-TYPE">/ARRoot/PassiveKeylessEntryLeftTopLevelComposition</SOFTWARE-COMPOSITION-TREF>
+            </ROOT-SW-COMPOSITION-PROTOTYPE>
+          </ROOT-SOFTWARE-COMPOSITIONS>
+        </SYSTEM>
+        <COMPOSITION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>PassiveKeylessEntryLeftTopLevelComposition</SHORT-NAME>
+          <COMPONENTS>
+            <SW-COMPONENT-PROTOTYPE UUID="">
+              <SHORT-NAME>PassiveKeylessEntryLeftSwComponentProto</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ARRoot/PassiveKeylessEntryControllerType</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+          </COMPONENTS>
+          <CONNECTORS>
+            <DELEGATION-SW-CONNECTOR>
+              <SHORT-NAME>PassiveKeylessEntryLeftConnectorProto</SHORT-NAME>
+              <OUTER-PORT-REF DEST="R-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntryControllerType/PassiveKeylessEntryLeft</OUTER-PORT-REF>
+            </DELEGATION-SW-CONNECTOR>
+          </CONNECTORS>
+        </COMPOSITION-SW-COMPONENT-TYPE>
+        <CAN-CLUSTER>
+          <SHORT-NAME>PassiveKeylessEntryRightCanCluster</SHORT-NAME>
+          <CAN-CLUSTER-VARIANTS>
+            <CAN-CLUSTER-CONDITIONAL>
+              <PHYSICAL-CHANNELS>
+                <CAN-PHYSICAL-CHANNEL>
+                  <SHORT-NAME>PassiveKeylessEntryRightCanPhysicalChannel</SHORT-NAME>
+                  <COMM-CONNECTORS>
+                    <COMMUNICATION-CONNECTOR-REF-CONDITIONAL>
+                      <COMMUNICATION-CONNECTOR-REF DEST="CAN-COMMUNICATION-CONNECTOR">/ARRoot/PassiveKeylessEntryRightECUInstance/PassiveKeylessEntryRightCanCommunicationConnector</COMMUNICATION-CONNECTOR-REF>
+                    </COMMUNICATION-CONNECTOR-REF-CONDITIONAL>
+                  </COMM-CONNECTORS>
+                </CAN-PHYSICAL-CHANNEL>
+              </PHYSICAL-CHANNELS>
+            </CAN-CLUSTER-CONDITIONAL>
+          </CAN-CLUSTER-VARIANTS>
+        </CAN-CLUSTER>
+        <ECU-INSTANCE>
+          <SHORT-NAME>PassiveKeylessEntryRightECUInstance</SHORT-NAME>
+          <COMM-CONTROLLERS>
+            <CAN-COMMUNICATION-CONTROLLER>
+              <SHORT-NAME>PassiveKeylessEntryRightCanCommunicationController</SHORT-NAME>
+            </CAN-COMMUNICATION-CONTROLLER>
+          </COMM-CONTROLLERS>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR>
+              <SHORT-NAME>PassiveKeylessEntryRightCanCommunicationConnector</SHORT-NAME>
+              <COMM-CONTROLLER-REF DEST="CAN-COMMUNICATION-CONTROLLER">/ARRoot/PassiveKeylessEntryRightECUInstance/PassiveKeylessEntryRightCanCommunicationController</COMM-CONTROLLER-REF>
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+        <FLAT-MAP>
+          <SHORT-NAME>PassiveKeylessEntryRightFlatMap</SHORT-NAME>
+          <INSTANCES>
+            <FLAT-INSTANCE-DESCRIPTOR>
+              <ECU-EXTRACT-REFERENCE-IREF>
+                <CONTEXT-ELEMENT-REF DEST="SYSTEM">/ARRoot/PassiveKeylessEntryRightSystem</CONTEXT-ELEMENT-REF>
+                <CONTEXT-ELEMENT-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/PassiveKeylessEntryRightSystem/PassiveKeylessEntryRightRootSoftwareComposition</CONTEXT-ELEMENT-REF>
+                <TARGET-REF DEST="R-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntryControllerType/PassiveKeylessEntryRight</TARGET-REF>
+              </ECU-EXTRACT-REFERENCE-IREF>
+            </FLAT-INSTANCE-DESCRIPTOR>
+          </INSTANCES>
+        </FLAT-MAP>
+        <SYSTEM>
+          <SHORT-NAME>PassiveKeylessEntryRightSystem</SHORT-NAME>
+          <MAPPINGS>
+            <SYSTEM-MAPPING>
+              <SHORT-NAME>PassiveKeylessEntryRightSoftwareMapping</SHORT-NAME>
+              <DATA-MAPPINGS>
+                <CLIENT-SERVER-TO-SIGNAL-MAPPING S="ClientServerToSignalMapping">
+                  <COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION>
+                </CLIENT-SERVER-TO-SIGNAL-MAPPING>
+              </DATA-MAPPINGS>
+              <SW-IMPL-MAPPINGS>
+                <SWC-TO-IMPL-MAPPING>
+                  <SHORT-NAME>PassiveKeylessEntryRightSwcToImpleMapping</SHORT-NAME>
+                  <COMPONENT-IMPLEMENTATION-REF DEST="SWC-IMPLEMENTATION">/ARRoot/PassiveKeylessEntryImp</COMPONENT-IMPLEMENTATION-REF>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/PassiveKeylessEntryRightSystem/PassiveKeylessEntryRightRootSoftwareComposition</CONTEXT-COMPOSITION-REF>
+                      <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryRightTopLevelComposition/PassiveKeylessEntryRightSwComponentProto</CONTEXT-COMPONENT-REF>
+                      <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryRightTopLevelComposition/PassiveKeylessEntryRightSwComponentProto</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                </SWC-TO-IMPL-MAPPING>
+              </SW-IMPL-MAPPINGS>
+              <SW-MAPPINGS>
+                <SWC-TO-ECU-MAPPING>
+                  <SHORT-NAME>PassiveKeylessEntryRightSwcToEcuMapping</SHORT-NAME>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/PassiveKeylessEntryRightSystem/PassiveKeylessEntryRightRootSoftwareComposition</CONTEXT-COMPOSITION-REF>
+                      <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryRightTopLevelComposition/PassiveKeylessEntryRightSwComponentProto</CONTEXT-COMPONENT-REF>
+                      <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/PassiveKeylessEntryRightTopLevelComposition/PassiveKeylessEntryRightSwComponentProto</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                  <CONTROLLED-HW-ELEMENT-REF DEST="HW-ELEMENT">/ARRoot/</CONTROLLED-HW-ELEMENT-REF>
+                  <ECU-INSTANCE-REF DEST="ECU-INSTANCE">/ARRoot/PassiveKeylessEntryRightECUInstance</ECU-INSTANCE-REF>
+                  <PROCESSING-UNIT-REF DEST="HW-ELEMENT">/ARRoot/</PROCESSING-UNIT-REF>
+                </SWC-TO-ECU-MAPPING>
+              </SW-MAPPINGS>
+            </SYSTEM-MAPPING>
+          </MAPPINGS>
+          <ROOT-SOFTWARE-COMPOSITIONS>
+            <ROOT-SW-COMPOSITION-PROTOTYPE>
+              <SHORT-NAME>PassiveKeylessEntryRightRootSoftwareComposition</SHORT-NAME>
+              <FLAT-MAP-REF DEST="FLAT-MAP">/ARRoot/PassiveKeylessEntryRightFlatMap</FLAT-MAP-REF>
+              <SOFTWARE-COMPOSITION-TREF DEST="COMPOSITION-SW-COMPONENT-TYPE">/ARRoot/PassiveKeylessEntryRightTopLevelComposition</SOFTWARE-COMPOSITION-TREF>
+            </ROOT-SW-COMPOSITION-PROTOTYPE>
+          </ROOT-SOFTWARE-COMPOSITIONS>
+        </SYSTEM>
+        <COMPOSITION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>PassiveKeylessEntryRightTopLevelComposition</SHORT-NAME>
+          <COMPONENTS>
+            <SW-COMPONENT-PROTOTYPE UUID="">
+              <SHORT-NAME>PassiveKeylessEntryRightSwComponentProto</SHORT-NAME>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ARRoot/PassiveKeylessEntryControllerType</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+          </COMPONENTS>
+          <CONNECTORS>
+            <DELEGATION-SW-CONNECTOR>
+              <SHORT-NAME>PassiveKeylessEntryRightConnectorProto</SHORT-NAME>
+              <OUTER-PORT-REF DEST="R-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntryControllerType/PassiveKeylessEntryRight</OUTER-PORT-REF>
+            </DELEGATION-SW-CONNECTOR>
+          </CONNECTORS>
+        </COMPOSITION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00050.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="03d22d2d-42c4-42bf-8b24-169b242a56ea">
+      <SHORT-NAME>ARRoot</SHORT-NAME>
+      <ELEMENTS>
+        <TRIGGER-INTERFACE>
+          <TRIGGERS>
+            <TRIGGER>
+              <SHORT-NAME>PassiveKeylessEntryLeftTrigger</SHORT-NAME>
+            </TRIGGER>
+            <TRIGGER>
+              <SHORT-NAME>PassiveKeylessEntryRightTrigger</SHORT-NAME>
+            </TRIGGER>
+          </TRIGGERS>
+        </TRIGGER-INTERFACE>
+        <IMPLEMENTATION-DATA-TYPE>
+          <SHORT-NAME>Boolean</SHORT-NAME>
+        </IMPLEMENTATION-DATA-TYPE>
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>PassiveKeylessEntryControllerType</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE>
+              <SHORT-NAME>PassiveKeylessEntryLeft</SHORT-NAME>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE>
+              <SHORT-NAME>PassiveKeylessEntryRight</SHORT-NAME>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>PassiveKeylessEntryIB</SHORT-NAME>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>PassiveKeylessEntryLeftRunnable</SHORT-NAME>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntryControllerType/PassiveKeylessEntryLeft</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ARRoot/PassiveKeylessEntryLeftCSIF/</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>PassiveKeylessEntryRightRunnable</SHORT-NAME>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntryControllerType/PassiveKeylessEntryRight</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ARRoot/PassiveKeylessEntryRightCSIF/</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION>
+          <SHORT-NAME>PassiveKeylessEntryImp</SHORT-NAME>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ARRoot/PassiveKeylessEntryControllerType/PassiveKeylessEntryIB</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <CLIENT-SERVER-INTERFACE>
+          <SHORT-NAME>PassiveKeylessEntryLeftCSIF</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE>
+                  <CATEGORY></CATEGORY>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE>
+          <SHORT-NAME>PassiveKeylessEntryRightCSIF</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+          <SHORT-NAME>PassiveKeylessEntrySwType</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>PassiveKeylessEntryLeft</SHORT-NAME>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>PassiveKeylessEntryRight</SHORT-NAME>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>PassiveKeylessEntryIB</SHORT-NAME>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>PassiveKeylessEntryLeftOp</SHORT-NAME>
+                  <EXTERNAL-TRIGGERING-POINTS>
+                    <EXTERNAL-TRIGGERING-POINT>
+                      <TRIGGER-IREF>
+                        <P-TRIGGER-IN-ATOMIC-SWC-TYPE-INSTANCE-REF S="">
+                          <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntrySwType/PassiveKeylessEntryLeft</CONTEXT-P-PORT-REF>
+                          <TARGET-TRIGGER-REF DEST="TRIGGER">/ARRoot//PassiveKeylessEntryLeftTrigger</TARGET-TRIGGER-REF>
+                        </P-TRIGGER-IN-ATOMIC-SWC-TYPE-INSTANCE-REF>
+                      </TRIGGER-IREF>
+                    </EXTERNAL-TRIGGERING-POINT>
+                  </EXTERNAL-TRIGGERING-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>PassiveKeylessEntryRightOp</SHORT-NAME>
+                  <EXTERNAL-TRIGGERING-POINTS>
+                    <EXTERNAL-TRIGGERING-POINT>
+                      <TRIGGER-IREF>
+                        <P-TRIGGER-IN-ATOMIC-SWC-TYPE-INSTANCE-REF>
+                          <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ARRoot/PassiveKeylessEntrySwType/PassiveKeylessEntryRight</CONTEXT-P-PORT-REF>
+                          <TARGET-TRIGGER-REF DEST="TRIGGER">/ARRoot//PassiveKeylessEntryRightTrigger</TARGET-TRIGGER-REF>
+                        </P-TRIGGER-IN-ATOMIC-SWC-TYPE-INSTANCE-REF>
+                      </TRIGGER-IREF>
+                    </EXTERNAL-TRIGGERING-POINT>
+                  </EXTERNAL-TRIGGERING-POINTS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
